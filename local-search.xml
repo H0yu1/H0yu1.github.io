@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Web基础学习</title>
+    <link href="/2025/02/22/html/"/>
+    <url>/2025/02/22/html/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>注：以下全是英文输入法</p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>    <br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>这里网页标题,显示在网页标签栏<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>此处用p语句写文章主要段落<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>可以用h1，h2……<br>        来标注文章标题1，标题2……<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure><h4 id="1-meta"><a href="#1-meta" class="headerlink" title="1.meta"></a>1.meta</h4><p>将其加在head部分</p><h5 id="1）声明字符编码"><a href="#1）声明字符编码" class="headerlink" title="1）声明字符编码"></a>1）声明字符编码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;utf-8&quot;</span>&gt;</span> <br></code></pre></td></tr></table></figure><h5 id="2）实现网页自适应"><a href="#2）实现网页自适应" class="headerlink" title="2）实现网页自适应"></a>2）实现网页自适应</h5><meta name="viewport"content="width=device-width,intial-scale=1.0"> <h5 id="3）实现搜索引擎优化"><a href="#3）实现搜索引擎优化" class="headerlink" title="3）实现搜索引擎优化"></a>3）实现搜索引擎优化</h5><meta "description" content="此处写大致网页内容"><meta "name"="keywords"content="此处写网页关键词"><meta "author"content="此处写作者名"><blockquote><p><code>注：这些内容不会在网页上显示，但爬虫会爬取这些内容，实现优先推荐</code></p></blockquote><h5 id="4）实现自动跳转"><a href="#4）实现自动跳转" class="headerlink" title="4）实现自动跳转"></a>4）实现自动跳转</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;refresh&quot;</span><span class="hljs-attr">content</span>=<span class="hljs-string">&quot;此处为填写多长时间后跳转;此处写跳转网页的URL&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure><h4 id="2-style"><a href="#2-style" class="headerlink" title="2.style"></a>2.style</h4><p>可出现在任何位置</p><p>属性：</p><ul><li>media：媒体, screen&#x2F;print&#x2F;all，表示在什么情况下使用该元素定义的样式</li><li>scoped：范围</li><li>type：类型,text&#x2F;css</li></ul><p>eg：</p><style type="text/css">    h1 {color:red}    a {        color:yellow;        background:black;    }    body {        background-image:url("图片路径")    }    h1 {        text-align:center;        #此操作为将文章h1标题居中        magin-left: 60%;        #左边距        }p {    text-indent: 32px;        #缩进32个像素    font-size: 16px;        #字体尺寸    line-height:32px;        #行高}    #大括号内为css代码，以此实现美化</style><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;print&quot;</span>&gt;</span><span class="language-css"></span><br><span class="language-css">    <span class="hljs-selector-tag">h1</span> &#123;</span><br><span class="language-css">        此为打印模式下，使用的样式</span><br><span class="language-css">    &#125;</span><br><span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure><style media="screen">]]></content>
+    
+    
+    <categories>
+      
+      <category>web</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>html</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2024/11/01/hello-world/"/>
     <url>/2024/11/01/hello-world/</url>
