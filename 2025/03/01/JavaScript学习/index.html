@@ -16,17 +16,20 @@
   <meta name="author" content="H0yu1">
   <meta name="keywords" content="">
   
-    <meta name="description" content="H0yu1的个人博客">
+    <meta name="description" content="一、JavaScript输出 注：便于写笔记，JavaScript全是写在HTML文档中的  1.使用window.alert()12345678910&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;我的第一个页面&lt;&#x2F;h1&gt;&lt;p&gt;我的第一个段落。&lt;&#x2F;p&gt;	&lt;script&gt;window.al">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript学习">
 <meta property="og:url" content="http://example.com/2025/03/01/JavaScript%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="H0yu1的个人博客">
-<meta property="og:description" content="H0yu1的个人博客">
+<meta property="og:description" content="一、JavaScript输出 注：便于写笔记，JavaScript全是写在HTML文档中的  1.使用window.alert()12345678910&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;我的第一个页面&lt;&#x2F;h1&gt;&lt;p&gt;我的第一个段落。&lt;&#x2F;p&gt;	&lt;script&gt;window.al">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:\HEXO\hexo-blog\source_posts\JavaScript%E5%AD%A6%E4%B9%A0\%E8%AF%AD%E5%8F%A5%E6%A0%87%E8%AF%86%E7%AC%A6.png">
 <meta property="article:published_time" content="2025-03-01T05:11:56.000Z">
-<meta property="article:modified_time" content="2025-03-01T05:11:56.284Z">
+<meta property="article:modified_time" content="2025-03-02T07:18:18.169Z">
 <meta property="article:author" content="Lhy">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="d:\HEXO\hexo-blog\source_posts\JavaScript%E5%AD%A6%E4%B9%A0\%E8%AF%AD%E5%8F%A5%E6%A0%87%E8%AF%86%E7%AC%A6.png">
   
   
   
@@ -255,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.7k 字
         
       </span>
     
@@ -266,7 +269,7 @@
         
         
         
-          1 分钟
+          15 分钟
         
       </span>
     
@@ -312,7 +315,201 @@
             
               <div class="markdown-body">
                 
-                
+                <h3 id="一、JavaScript输出"><a href="#一、JavaScript输出" class="headerlink" title="一、JavaScript输出"></a>一、JavaScript输出</h3><blockquote>
+<p>注：便于写笔记，JavaScript全是写在HTML文档中的</p>
+</blockquote>
+<h4 id="1-使用window-alert"><a href="#1-使用window-alert" class="headerlink" title="1.使用window.alert()"></a>1.使用window.alert()</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我的第一个页面<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>我的第一个段落。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>	<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">alert</span>(<span class="hljs-number">5</span> + <span class="hljs-number">6</span>);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="2-操作HTML元素"><a href="#2-操作HTML元素" class="headerlink" title="2.操作HTML元素"></a>2.操作HTML元素</h4><p>如需从 JavaScript 访问某个 HTML 元素，您可以document.getElementById(<em>id</em>) 方法。请使用 “id” 属性来标识 HTML 元素，并 innerHTML 来获取或插入元素内容</p>
+<p>eg:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;demo&quot;</span>&gt;</span>第一次使用document.getElementByid<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-property">getElement</span>.<span class="hljs-title class_">Byid</span>(<span class="hljs-string">&quot;demo&quot;</span>).<span class="hljs-property">innerHEML</span>=<span class="hljs-string">&quot;恭喜你学会了&quot;</span></span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-document-write"><a href="#3-document-write" class="headerlink" title="3. document.write()"></a>3. document.write()</h4><p>可向文档中写入内容</p>
+<p>eg:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">write</span>(<span class="hljs-title class_">Date</span>());</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>补：如在文档完成加载后执行document.write(),整个HTML页面将被覆盖</p>
+<p>eg:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>我的第一个 Web 页面<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>我的第一个段落。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;myFunction()&quot;</span>&gt;</span>点我<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">   	<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">write</span>(<span class="hljs-title class_">Date</span>());</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>可以自己新建一个html的文档试试效果</p>
+</blockquote>
+<h4 id="4-写到控制台"><a href="#4-写到控制台" class="headerlink" title="4.写到控制台"></a>4.写到控制台</h4><p>JavaScript程序可以在console进行调试，减少bug出现</p>
+<h3 id="二、JavaScript语法"><a href="#二、JavaScript语法" class="headerlink" title="二、JavaScript语法"></a>二、JavaScript语法</h3><h4 id="1-字面量"><a href="#1-字面量" class="headerlink" title="1.字面量"></a>1.字面量</h4><ul>
+<li>数字字面量：可以是整数、小数或者科学计数法（e），eg：3.14，123e5</li>
+<li>字符串字面量：可以使用单引号或者双引号，eg：”java”或者’java’</li>
+<li>表达式字面量：用于计算，eg：5+6</li>
+<li>数组字面量：定义一个数组，eg：[40,100,2]</li>
+<li>对象字面量：第一一个对象，eg：{firstname:”java”, lastname:”‘hello’}</li>
+<li>函数字面量：定义一个函数，eg：function myFunction(a,b){return a*b;}</li>
+</ul>
+<h4 id="2-变量"><a href="#2-变量" class="headerlink" title="2.变量"></a>2.变量</h4><p>注：JavaScript对大小写敏感</p>
+<p>使用var定义变量，使用等号赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x,y;<br>x=<span class="hljs-number">2</span>;<br>y=<span class="hljs-number">3</span>;<br><span class="hljs-comment">//也可以在声明时对其进行赋值</span><br><span class="hljs-keyword">var</span> z=<span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>未赋值的变量将是undefined</p>
+<p><strong>如果重新声明 JavaScript 变量，该变量的值不会丢失</strong></p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> a=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">var</span> a;<br><span class="hljs-comment">//a的值还是1</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-操作符"><a href="#3-操作符" class="headerlink" title="3.操作符"></a>3.操作符</h4><ol>
+<li>算术运算符：+ - * &#x2F;</li>
+<li>赋值运算符：&#x3D;</li>
+<li>其他：位运算符，条件运算符，比较运算符，逻辑运算符</li>
+</ol>
+<h4 id="4-语句"><a href="#4-语句" class="headerlink" title="4.语句"></a>4.语句</h4><p>JavaScript语句用于向浏览器发送命令，语句用<strong>分号隔开</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">x=<span class="hljs-number">1</span>+<span class="hljs-number">2</span>;<br>y=<span class="hljs-number">2</span>+<span class="hljs-number">3</span>;<br><span class="hljs-comment">//另一个好处是使用分号可以一行编写多条语句</span><br>x=<span class="hljs-number">1</span>;y=<span class="hljs-number">2</span>;z=<span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+<p>语句标识符：</p>
+<p><img src="D:\HEXO\hexo-blog\source_posts\JavaScript学习\语句标识符.png" srcset="/img/loading.gif" lazyload alt="image-20250301162842320"></p>
+<p><strong>JavaScript会忽略多余空格，可以向脚本中添加空格增加可读性</strong></p>
+<p><strong>可以在文本字符串中使用反斜杠对代码进行换行</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//如下</span><br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">write</span>(<span class="hljs-string">&quot;hello \ world&quot;</span>)<span class="hljs-comment">//这是正确用法</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-关键字"><a href="#5-关键字" class="headerlink" title="5.关键字"></a>5.关键字</h4><p>太多了……</p>
+<h4 id="6-注释"><a href="#6-注释" class="headerlink" title="6.注释"></a>6.注释</h4><p>使用**&#x2F;&#x2F;**双斜杠进行注释</p>
+<p><strong>多行</strong>注释可用**&#x2F;* *&#x2F;**实现</p>
+<h4 id="7-数据类型"><a href="#7-数据类型" class="headerlink" title="7.数据类型"></a>7.数据类型</h4><p>**值类型(基本类型)**：字符串（String）、数字(Number)、布尔(Boolean)、空（Null）、未定义（Undefined）、Symbol。</p>
+<p><strong>引用数据类型（对象类型）</strong>：对象(Object)、数组(Array)、函数(Function)，还有两个特殊的对象：正则（RegExp）和日期（Date）。</p>
+<blockquote>
+<p><strong>注：</strong>*Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值。</p>
+<p>布尔：只有两个值true或false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x=<span class="hljs-literal">true</span>;<br><span class="hljs-keyword">var</span> y=<span class="hljs-literal">false</span>;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>JavaScript拥有动态类型，意味着相同变量可以用作不同的类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x;<br><span class="hljs-keyword">var</span> x=<span class="hljs-number">5</span>;<br><span class="hljs-keyword">var</span> x=<span class="hljs-string">&quot;java&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>变量类型可用typeof操作符来查看</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">typeof</span> <span class="hljs-string">&quot;John&quot;</span>                <span class="hljs-comment">// 返回 string</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-number">3.14</span>                  <span class="hljs-comment">// 返回 number</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-literal">false</span>                 <span class="hljs-comment">// 返回 boolean</span><br><span class="hljs-keyword">typeof</span> [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]             <span class="hljs-comment">// 返回 object</span><br><span class="hljs-keyword">typeof</span> &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-attr">age</span>:<span class="hljs-number">34</span>&#125; <span class="hljs-comment">// 返回 object</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h5><p>下面的代码创建名为 cars 的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> cars=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>();<br>cars[<span class="hljs-number">0</span>]=<span class="hljs-string">&quot;Saab&quot;</span>;<br>cars[<span class="hljs-number">1</span>]=<span class="hljs-string">&quot;Volvo&quot;</span>;<br>cars[<span class="hljs-number">2</span>]=<span class="hljs-string">&quot;BMW&quot;</span>;<br><span class="hljs-comment">//或者</span><br><span class="hljs-keyword">var</span> cars=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(<span class="hljs-string">&quot;Saab&quot;</span>,<span class="hljs-string">&quot;Volvo&quot;</span>,<span class="hljs-string">&quot;BMW&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h5 id="对象："><a href="#对象：" class="headerlink" title="对象："></a>对象：</h5><p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> person=&#123;<span class="hljs-attr">firstname</span>:<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-attr">lastname</span>:<span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-attr">id</span>:<span class="hljs-number">5566</span>&#125;;<br><span class="hljs-comment">//对象属性的两种寻址方式</span><br>name=person.<span class="hljs-property">lastname</span>;<br>name=person[<span class="hljs-string">&quot;lastname&quot;</span>];<br></code></pre></td></tr></table></figure>
+
+<h5 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h5><p>这个值表示变量不含有值。可以通过将变量的值设置为 null 来清空变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">cars=<span class="hljs-literal">null</span>;<br></code></pre></td></tr></table></figure>
+
+<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><p>可以使用索引位置访问字符串中的每个字符</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;demo&quot;</span>&gt;</span>hhh<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">var</span> a =<span class="hljs-string">&quot;hello&quot;</span>;</span><br><span class="language-javascript"><span class="hljs-keyword">let</span> letter =a[<span class="hljs-number">3</span>];</span><br><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementId</span>(<span class="hljs-string">&quot;demo&quot;</span>).<span class="hljs-property">innerHTML</span>=letter;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>计算<strong>字符串长度</strong>可用内置属性length</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt =<span class="hljs-string">&quot;qwertyu&quot;</span>;<br><span class="hljs-keyword">var</span> sln =txt.<span class="hljs-property">length</span>;<br></code></pre></td></tr></table></figure>
+
+<p>一些<strong>特殊字符</strong>的写法，如双引号内还有双引号，可用<strong>转义字符</strong>来转义</p>
+<table>
+<thead>
+<tr>
+<th align="left">代码</th>
+<th align="left">输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">\‘</td>
+<td align="left">单引号</td>
+</tr>
+<tr>
+<td align="left">\“</td>
+<td align="left">双引号</td>
+</tr>
+<tr>
+<td align="left">\\</td>
+<td align="left">反斜杠</td>
+</tr>
+<tr>
+<td align="left">\n</td>
+<td align="left">换行</td>
+</tr>
+<tr>
+<td align="left">\r</td>
+<td align="left">回车</td>
+</tr>
+<tr>
+<td align="left">\t</td>
+<td align="left">tab(制表符)</td>
+</tr>
+<tr>
+<td align="left">\b</td>
+<td align="left">退格符</td>
+</tr>
+<tr>
+<td align="left">\f</td>
+<td align="left">换页符</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注：表格前排的代码因为.md直接转义成转移后的模样，所以我多加了一个</p>
+</blockquote>
+<p><strong>字符串可以是对象</strong>通常， JavaScript 字符串是原始值，可以使用字符创建： **var firstName &#x3D; “John”**但我们也可以使用 new 关键字将字符串定义为一个对象： <strong>var firstName &#x3D; new String(“John”)</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;demo&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-string">&quot;John&quot;</span>;              <span class="hljs-comment">// x 是字符串</span></span><br><span class="language-javascript"><span class="hljs-keyword">var</span> y = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;John&quot;</span>);  <span class="hljs-comment">// y 是一个对象</span></span><br><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;demo&quot;</span>).<span class="hljs-property">innerHTML</span> = x===y;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>=== 为绝对相等，即数据类型与值都必须相等。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：不要创建 String 对象。它会拖慢执行速度，并可能产生其他副作用</p>
+</blockquote>
+<p>声明变量类型：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> carname=<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>;<br><span class="hljs-keyword">var</span> x=      <span class="hljs-keyword">new</span> <span class="hljs-title class_">Number</span>;<br></code></pre></td></tr></table></figure>
+
+<h4 id="8-对象"><a href="#8-对象" class="headerlink" title="8.对象"></a>8.对象</h4><p>JavaScript对象是变量的容器</p>
+<p>对象也是一个变量，但对象可以包含多个值（多个变量），每个值以 <strong>name:value</strong> 对呈现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> car = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;Fiat&quot;</span>, <span class="hljs-attr">model</span>:<span class="hljs-number">500</span>, <span class="hljs-attr">color</span>:<span class="hljs-string">&quot;white&quot;</span>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><strong>对象属性</strong>：JavaScript对象是键值对的容器，键值对的通常写法是：name:value（键与值以冒号分割），键值对在JavaScript对象称为对象属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">//对象属性的两种寻址方式</span><br>name=person.<span class="hljs-property">lastname</span>;<br>name=person[<span class="hljs-string">&quot;lastname&quot;</span>];<br></code></pre></td></tr></table></figure>
+
+<p><strong>对象方法</strong>：对象的方法定义了一个函数，并作为对象的属性存储。</p>
+<p>对象方法通过添加 () 调用 (作为一个函数)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-comment">//fullname()是作为person对象的一个方法，而fullname是作为一个属性如果使用fullname属性，不添加()，它会返回函数的定义</span><br>&lt;p id=<span class="hljs-string">&quot;demo1&quot;</span>&gt;&lt;/p&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;demo2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">var</span> person = &#123;</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-attr">firstName</span>: <span class="hljs-string">&quot;John&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">    lastName : <span class="hljs-string">&quot;Doe&quot;</span>,</span></span><br><span class="language-javascript"><span class="language-xml">    id : <span class="hljs-number">5566</span>,</span></span><br><span class="language-javascript"><span class="language-xml">    fullName : <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span></span><br><span class="language-javascript"><span class="language-xml">	&#123;</span></span><br><span class="language-javascript"><span class="language-xml">       <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> + <span class="hljs-string">&quot; &quot;</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span>;</span></span><br><span class="language-javascript"><span class="language-xml">    &#125;</span></span><br><span class="language-javascript"><span class="language-xml">&#125;;</span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;demo1&quot;</span>).<span class="hljs-property">innerHTML</span> = person.<span class="hljs-title function_">fullName</span>();</span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;demo2&quot;</span>).<span class="hljs-property">innerHTML</span> = person.<span class="hljs-property">fullName</span>;</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="hljs-comment">//输出为John Doe</span><br><span class="hljs-comment">/*输出为function() </span><br><span class="hljs-comment">	&#123;</span><br><span class="hljs-comment">       return this.firstName + &quot; &quot; + this.lastName;</span><br><span class="hljs-comment">    &#125;</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="9-函数"><a href="#9-函数" class="headerlink" title="9.函数"></a>9.函数</h4><p>关键词为function;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">functionname</span>(<span class="hljs-params"></span>)<br>&#123;<br>   <span class="hljs-comment">//执行代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>带参数的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myfunction</span>(<span class="hljs-params">var1,var2</span>)<br>&#123;<br><span class="hljs-comment">//代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>带返回值的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myfunction</span>(<span class="hljs-params"></span>)<br>&#123;<br><span class="hljs-comment">//代码</span><br><span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="10-事件："><a href="#10-事件：" class="headerlink" title="10.事件："></a>10.事件：</h4><p>常见的HTML事件</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onchange</td>
+<td>HTML 元素改变</td>
+</tr>
+<tr>
+<td>onclick</td>
+<td>用户点击 HTML 元素</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标指针移动到指定的元素上时发生</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>用户从一个 HTML 元素上移开鼠标时发生</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td>用户按下键盘按键</td>
+</tr>
+<tr>
+<td>onload</td>
+<td>浏览器已完成页面的加载</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注：更多的在HTML DOM事件中，<a src="[HTML DOM 事件对象 | 菜鸟教程](https://www.runoob.com/jsref/dom-obj-event.html)">完整版</a></p>
+</blockquote>
+
                 
               </div>
             
@@ -320,6 +517,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaScript/" class="category-chain-item">JavaScript</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
+      
+    </div>
   
 </div>
 
