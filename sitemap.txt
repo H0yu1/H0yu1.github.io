@@ -1,0 +1,6 @@
+http://example.com/2025/07/04/CentOS/
+http://example.com/about/index.html
+http://example.com/2024/11/01/hello-world/
+http://example.com/
+http://example.com/tags/CenOS7/
+http://example.com/categories/problem/
