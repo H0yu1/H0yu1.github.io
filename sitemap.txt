@@ -1,8 +1,8 @@
-http://example.com/2025/09/22/catcat-new/
-http://example.com/2025/07/04/CentOS/
-http://example.com/about/index.html
-http://example.com/2024/11/01/hello-world/
-http://example.com/
-http://example.com/tags/CenOS7/
-http://example.com/categories/problem/
-http://example.com/categories/ctf/
+https://h0yu1.github.io/2025/09/22/catcat-new/
+https://h0yu1.github.io/2025/07/04/CentOS/
+https://h0yu1.github.io/about/index.html
+https://h0yu1.github.io/2024/11/01/hello-world/
+https://h0yu1.github.io/
+https://h0yu1.github.io/tags/CenOS7/
+https://h0yu1.github.io/categories/problem/
+https://h0yu1.github.io/categories/ctf/
