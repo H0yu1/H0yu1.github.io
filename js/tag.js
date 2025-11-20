@@ -4,11 +4,11 @@ var titleTime;
 document.addEventListener('visibilitychange', function() {
 	if (document.hidden) {
 		$('[rel="icon"]').attr('href', "/funny.ico");
-		document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+		document.title = '你咋走了，不嘻嘻';
 		clearTimeout(titleTime);
 	} else {
 		$('[rel="icon"]').attr('href', "/img/newtubiao.png");
-		document.title = '(ฅ>ω<*ฅ) 噫又好啦 ~' + OriginTitle;
+		document.title = '你来啦，嘻嘻' + OriginTitle;
 		titleTime = setTimeout(function() {
 			document.title = OriginTitle;
 		}, 2000);
