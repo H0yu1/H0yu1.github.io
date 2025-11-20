@@ -24,7 +24,7 @@
 <meta property="og:description" content="MD5绕过弱类型比较&#x3D;&#x3D;1md5($a)&#x3D;&#x3D;md5($b)&amp;&amp;$a!&#x3D;$b  科学计数法在PHP中 0e开头表示为科学计数法 0e后面的字母 会被当作零处理 12345678910111213QLTHNDTQNKCDZOPJNPDWYNWWKITQNOOPCJF MMHUWUVMAUXXQC240610708s878926199as155964671as2145">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-20T13:25:08.000Z">
-<meta property="article:modified_time" content="2025-11-20T13:49:40.776Z">
+<meta property="article:modified_time" content="2025-11-20T14:33:12.286Z">
 <meta property="article:author" content="Lhy">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary_large_image">
@@ -326,7 +326,7 @@
 <h2 id="科学计数法"><a href="#科学计数法" class="headerlink" title="科学计数法"></a>科学计数法</h2><p>在PHP中 0e开头表示为科学计数法 0e后面的字母 会被当作零处理</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs plain">QLTHNDT<br>QNKCDZO<br>PJNPDWY<br>NWWKITQ<br>NOOPCJF <br>MMHUWUV<br>MAUXXQC<br>240610708<br>s878926199a<br>s155964671a<br>s214587387a<br>0e215962017<br>0e1284838308<br></code></pre></td></tr></table></figure>
 
-<h2 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过"></a>数组绕过</h2><p><font style="color:rgb(44, 62, 80);">由于md5不能加密数组，在加密数组的时候会返回NULL</font></p>
+<h2 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过"></a>数组绕过</h2><p>由于md5不能加密数组，在加密数组的时候会返回NULL</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">?a[]=1&amp;b[]=2<br></code></pre></td></tr></table></figure>
 
 <h1 id="强类型比较"><a href="#强类型比较" class="headerlink" title="强类型比较&#x3D;&#x3D;&#x3D;"></a>强类型比较&#x3D;&#x3D;&#x3D;</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param1&#x27;</span>]!==<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param2&#x27;</span>]&amp;&amp;<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param1&#x27;</span>])===<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param2&#x27;</span>]))<br></code></pre></td></tr></table></figure>
