@@ -24,7 +24,7 @@
 <meta property="og:description" content="MD5绕过弱类型比较&#x3D;&#x3D;1md5($a)&#x3D;&#x3D;md5($b)&amp;&amp;$a!&#x3D;$b  科学计数法在PHP中 0e开头表示为科学计数法 0e后面的字母 会被当作零处理 12345678910111213QLTHNDTQNKCDZOPJNPDWYNWWKITQNOOPCJF MMHUWUVMAUXXQC240610708s878926199as155964671as2145">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-20T13:25:08.000Z">
-<meta property="article:modified_time" content="2025-11-20T14:33:12.286Z">
+<meta property="article:modified_time" content="2025-11-20T14:35:50.310Z">
 <meta property="article:author" content="Lhy">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary_large_image">
@@ -331,7 +331,7 @@
 
 <h1 id="强类型比较"><a href="#强类型比较" class="headerlink" title="强类型比较&#x3D;&#x3D;&#x3D;"></a>强类型比较&#x3D;&#x3D;&#x3D;</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param1&#x27;</span>]!==<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param2&#x27;</span>]&amp;&amp;<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param1&#x27;</span>])===<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;param2&#x27;</span>]))<br></code></pre></td></tr></table></figure>
 
-<p><font style="color:rgb(51, 51, 51);">0e绕过不能用了，因为强比较时，0exxx不再被当做科学计数法，而是被当做字符串</font></p>
+<p>0e绕过不能用了，因为强比较时，0exxx不再被当做科学计数法，而是被当做字符串</p>
 <h2 id="数组绕过-1"><a href="#数组绕过-1" class="headerlink" title="数组绕过"></a>数组绕过</h2><p>依然可以实现绕过<code>?a[]=1&amp;b[]=2</code></p>
 <h2 id="string类型的强类型比较"><a href="#string类型的强类型比较" class="headerlink" title="string类型的强类型比较"></a>string类型的强类型比较</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span>((<span class="hljs-keyword">string</span>)<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;a&#x27;</span>]!==(<span class="hljs-keyword">string</span>)<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;b&#x27;</span>] &amp;&amp; <br>  <span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;a&#x27;</span>])===<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">&#x27;b&#x27;</span>]))<br></code></pre></td></tr></table></figure>
 
@@ -353,7 +353,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$a</span>))!==<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$b</span>)&amp;&amp;<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$a</span>))==<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$b</span>)<br></code></pre></td></tr></table></figure>
 
 <p>我尝试上面的都不行，说是要求0e后要为全是数字，留个坑</p>
-<h1 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h1><h2 id="a-md5-a"><a href="#a-md5-a" class="headerlink" title="$a == md5($a)"></a><code>$a == md5($a)</code></h2><p><code>**0e215962017**</code>的 MD5 值也是由 0e 开头，在 PHP 弱类型比较中相等</p>
+<h1 id="特殊值"><a href="#特殊值" class="headerlink" title="特殊值"></a>特殊值</h1><h2 id="a-md5-a"><a href="#a-md5-a" class="headerlink" title="$a == md5($a)"></a><code>$a == md5($a)</code></h2><p><code>0e215962017</code>的 MD5 值也是由 0e 开头，在 PHP 弱类型比较中相等</p>
 <p>md5(0e215962017)&#x3D;0e291242476940776845150308577824</p>
 <h2 id="NaN和INF"><a href="#NaN和INF" class="headerlink" title="NaN和INF"></a>NaN和INF</h2><p>NAN 和 INF，分别为非数字和无穷大，但是var_dump 一下它们的数据类型却是 double那么在 md5函数处理它们的时候，是将其直接转换为字符串 NAN和字符串 INF 使用的，但是它们拥有特殊的性质，它们与任何数据类型（除了 true）做强类型或弱类型比较均为 false，甚至 NAN&#x3D;NAN 都是 false，但md5(‘NaN’)&#x3D;md5(‘NaN’)为 true。</p>
 <h1 id="MD5-a-true-函数"><a href="#MD5-a-true-函数" class="headerlink" title="MD5($a,true)函数"></a>MD5($a,true)函数</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$sql</span> = <span class="hljs-string">&quot;SELECT flag FROM flags WHERE password = &#x27;&quot;</span>.<span class="hljs-title function_ invoke__">md5</span>(<span class="hljs-variable">$password</span>,<span class="hljs-literal">true</span>).<span class="hljs-string">&quot;&#x27;&quot;</span>;<br></code></pre></td></tr></table></figure>
